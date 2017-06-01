@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+
+
+
+    <filter>
+        <filter-name>ChineseFilter</filter-name>
+        <filter-class>cn.edu.cqupt.jiajiao.util.ChineseFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ChineseFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>cn.edu.cqupt.jiajiao.util.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+
+
+    <!-- 配置 ServletConfigurator类-->
+    <servlet>
+        <servlet-name>ServletConfigurator</servlet-name>
+        <servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+        <init-param>
+            <param-name>xmlFile</param-name>
+            <param-value>WEB-INF/proxool.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Proxool提供的管理监控工具，用于查看当前数据库连接情况 -->
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/db</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>initdb</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.InitializeServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>initdb</servlet-name>
+        <url-pattern>/init</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>cn.edu.cqupt.jiajiao.util.SessionListener</listener-class>
+    </listener>
+
+
+    <servlet>
+        <servlet-name>CollectionServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.CollectionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.RegistServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddRequirementServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AddRequirementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateRequirementServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.UpdateRequirementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryRequirementListServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryRequirementListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryRequirementDetailServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryRequirementDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryRequirementServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryRequirementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddTeacherServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AddTeacherServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateTeacherServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.UpdateTeacherServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryAndUpdateTeacherServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryAndUpdateTeacherServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AddStudentServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AddStudentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteStudentServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.DeleteStudentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryAndUpdateStudentServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryAndUpdateStudentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryStudentListServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryStudentListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryTeacherDetailServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryTeacherDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryTeacherServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryTeacherServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateMemberServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.UpdateMemberServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateStudentServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.UpdateStudentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewsServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AddNewsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryNewsServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryNewsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryNewsDetailServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryNewsDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteNewsServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.DeleteNewsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewsTypeServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.NewsTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddLinkServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AddLinkServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryLinkServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryLinkServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteLinkServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.DeleteLinkServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateLinkServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.UpdateLinkServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.IndexServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNoticeServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AddNoticeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryNoticeServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryNoticeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteNoticeServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.DeleteNoticeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryNoticeDetailServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryNoticeDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddMemberTypeServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AddMemberTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryMemberTypeServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryMemberTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateMemberTypeServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.UpdateMemberTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteMemberTypeServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.DeleteMemberTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryMemberServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryMemberServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryMemberListServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryMemberListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCertificateServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AddCertificateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryCertificateServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.QueryCertificateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddSysinfoServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AddSysinfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateSysinfoServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.UpdateSysinfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>LookPhoneServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.LookPhoneServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AdministratorServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AdministratorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AdminLoggingServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AdminLoggingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.AdminLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>EvaluationServlet</servlet-name>
+        <servlet-class>cn.edu.cqupt.jiajiao.servlet.EvaluationServlet</servlet-class>
+    </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <servlet-mapping>
+        <servlet-name>CollectionServlet</servlet-name>
+        <url-pattern>/collection.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistServlet</servlet-name>
+        <url-pattern>/regist.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddRequirementServlet</servlet-name>
+        <url-pattern>/addRequirement.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateRequirementServlet</servlet-name>
+        <url-pattern>/updateRequirement.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryRequirementListServlet</servlet-name>
+        <url-pattern>/queryRequirementList.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryRequirementDetailServlet</servlet-name>
+        <url-pattern>/queryRequirementDetail.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryRequirementServlet</servlet-name>
+        <url-pattern>/queryRequirement.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddTeacherServlet</servlet-name>
+        <url-pattern>/addTeacher.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateTeacherServlet</servlet-name>
+        <url-pattern>/updateTeacher.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateTeacherServlet</servlet-name>
+        <url-pattern>/admin/updateTeacher.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryAndUpdateTeacherServlet</servlet-name>
+        <url-pattern>/queryAndUpdateTeacher.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AddStudentServlet</servlet-name>
+        <url-pattern>/addStudent.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStudentServlet</servlet-name>
+        <url-pattern>/deleteStudent.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryAndUpdateStudentServlet</servlet-name>
+        <url-pattern>/queryAndUpdateStudent.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryStudentListServlet</servlet-name>
+        <url-pattern>/queryStudentList.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryTeacherDetailServlet</servlet-name>
+        <url-pattern>/queryTeacherDetail.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>QueryTeacherServlet</servlet-name>
+        <url-pattern>/queryTeacher.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryTeacherServlet</servlet-name>
+        <url-pattern>/admin/queryTeacher.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateMemberServlet</servlet-name>
+        <url-pattern>/updateMember.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateMemberServlet</servlet-name>
+        <url-pattern>/admin/updateMember.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateStudentServlet</servlet-name>
+        <url-pattern>/updateStudent.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewsServlet</servlet-name>
+        <url-pattern>/admin/addNews.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryNewsServlet</servlet-name>
+        <url-pattern>/queryNews.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryNewsServlet</servlet-name>
+        <url-pattern>/admin/queryNews.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryNewsDetailServlet</servlet-name>
+        <url-pattern>/queryNewsDetail.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteNewsServlet</servlet-name>
+        <url-pattern>/admin/deleteNews.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewsTypeServlet</servlet-name>
+        <url-pattern>/admin/newsType.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddLinkServlet</servlet-name>
+        <url-pattern>/admin/addLink.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryLinkServlet</servlet-name>
+        <url-pattern>/admin/queryLink.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteLinkServlet</servlet-name>
+        <url-pattern>/admin/deleteLink.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateLinkServlet</servlet-name>
+        <url-pattern>/admin/updateLink.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/index.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNoticeServlet</servlet-name>
+        <url-pattern>/admin/addNotice.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryNoticeServlet</servlet-name>
+        <url-pattern>/admin/queryNotice.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteNoticeServlet</servlet-name>
+        <url-pattern>/admin/deleteNotice.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryNoticeDetailServlet</servlet-name>
+        <url-pattern>/queryNoticeDetail.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddMemberTypeServlet</servlet-name>
+        <url-pattern>/admin/addMemberType.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryMemberTypeServlet</servlet-name>
+        <url-pattern>/admin/queryMemberType.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateMemberTypeServlet</servlet-name>
+        <url-pattern>/admin/updateMemberType.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMemberTypeServlet</servlet-name>
+        <url-pattern>/admin/deleteMemberType.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryMemberServlet</servlet-name>
+        <url-pattern>/admin/queryMember.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryMemberListServlet</servlet-name>
+        <url-pattern>/admin/queryMemberList.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCertificateServlet</servlet-name>
+        <url-pattern>/addCertificate.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryCertificateServlet</servlet-name>
+        <url-pattern>/admin/queryCertificate.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSysinfoServlet</servlet-name>
+        <url-pattern>/admin/addSysinfo.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateSysinfoServlet</servlet-name>
+        <url-pattern>/admin/updateSysinfo.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LookPhoneServlet</servlet-name>
+        <url-pattern>/lookPhone.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdministratorServlet</servlet-name>
+        <url-pattern>/admin/administrator.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLoggingServlet</servlet-name>
+        <url-pattern>/admin/adminLogging.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/admin/adminLogin.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EvaluationServlet</servlet-name>
+        <url-pattern>/evaluation.do</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <welcome-file-list>
+        <welcome-file>index.do</welcome-file>
+    </welcome-file-list>
+</web-app>
