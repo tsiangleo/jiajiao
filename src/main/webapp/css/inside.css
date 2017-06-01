@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+#mainContentbox{
+	width:696px;
+}
+#mainContentbox .bknr{
+	background-image:url(../images/listcontent_box_bg.png);
+}
+.mainContent{
+	margin:0 20px;
+}
+
+.position{
+	height:32px;
+	line-height:18px;
+	background:url(../images/position_line_bg.png) no-repeat left bottom;
+}
+
+.search_bar{
+	background:url(../images/search_bar_bg.png) no-repeat;
+	width:656px;
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;	
+}
+.cate_title{ height:70px;}
+.cate_title h1{line-height:70px; font-size:18px; font-weight:bold; text-align:center; color:#000}
+
+.page_soft .cate_title h1{
+	background:url(../images/page_tit_bg.png) no-repeat 70px center; color:#FFF
+}
+
+#slider_list{
+	width:293px;
+}
+.recommend_list{
+	width:293px;
+	margin-bottom:10px;
+}
+.recommend_list .bknr, .catelog .bknr{
+	background-image:url(../images/recommend_box_bg.png);
+}
+.recommend_list .bktop{
+	background:url(../images/recomend_tit.png) no-repeat;
+	width:293px;
+	height:50px;
+	position:relative;
+}
+#hotnews .bktop{
+	background-image:url(../images/hot_news_tit.png);
+}
+#hot_shipin .bktop{
+	background-image:url(../images/recomend_shipin_tit.png);
+}
+.recommend_list h3{
+	font-size:14px;
+	line-height:50px;
+	text-indent:63px;
+	font-weight:bold;
+}
+.recommend_list span.more{ height:50px; line-height:50px; right:20px;}
+.recommend_list ul{padding:8px 35px;}
+.recommend_list ul li{ height:24px; line-height:24px;}
+
+
+.fieldset1 legend {
+  background:none repeat scroll 0 0 #FFFFFF;
+  border:1px solid #BCDFFF;
+  color:#336699;
+  font-size:14px;
+  font-weight:bold;
+  left:20px;
+  margin-top:10px;
+  padding:10px;
+  text-transform:capitalize;
+}
+
+.fieldset1 {
+  background:none repeat scroll 0 0 #ffffff;
+  border:1px solid #BCDFFF;
+  clear:both;
+  margin:0 0 30px 0.3em;
+  padding:1em 1.4em 1.4em;
+}
+
+.field-group label {
+  color:#555555;
+  float:left;
+  font-size:14px;
+  margin-top:9px;
+  text-align:right;
+  width:100px;
+}
+
+.fieldset1 .legendtitle {
+  color: rgb(85, 85, 85);
+}
+
+
+
+/*********教员信息展示********/
+table.mberTab,table.mberTab1{width:99%; margin:5px 0 5px 3px;border:none; background: #faf5e3; border: solid 1px #EFE7BC;  font-size:14px;}
+table.mberTab th,table.mberTab1 th{text-align:center;padding:5px; letter-spacing:3px; }
+table.mberTab td{padding: 3px 0 0 6px; background: #fff;  font-size:14px; line-height:25px;}
+table.mberTab1 td{padding: 3px 0 0 6px; background: #fff; line-height:1.5;font-size:12px;}
+table.mberTab td A,table.mberTab1 td A{text-decoration:underline;}
+table.mberTab td A:hover,table.mberTab1 td A:hover{text-decoration:none;}
+td.nonutd A{text-decoration:none!important;}
+td.nonutd A:hover{text-decoration:underline!important;}
+table.mberTab td strong,table.mberTab1 td strong{ color:#000}
+table.mbertabbg{ background:#FDFCCF!important; font-weight:bolder;}
+
+.mberlx{ margin:3px 5px; padding: 5px; background:#f1ffe1;border: solid 1px #d2ffa7;color: #247500; }
+
+

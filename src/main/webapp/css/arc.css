@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+.cate_title h1{ height:54px; line-height:54px; border-bottom:dashed 1px #333;}
+.arc_content{
+	width:600px;
+	overflow:hidden;
+	padding:1px 20px;
+}
+.arc_content,.arc_content p{
+	line-height:30px;	
+}
+.video_player{
+	width:533px;
+	height:400px;
+	margin:0 auto;
+}
+.video_content{
+	width:533px;
+	margin:20px auto;
+}
+.navlinks{
+	width:533px;
+	margin:0 auto;
+	padding:10px 0;
+}
+
+.navlinks ul li{
+	width:266px;
+	float:left;
+}
+.nearlist{
+	width:533px;
+	margin:0 auto;
+	padding:10px 0;
+}
+.nearlist h2{
+	font-weight:bold;
+	font-size:16px;
+	line-height:30px;
+	height:33px;
+	border-bottom:1px dashed #999;
+}
+.nearlist ul{
+	padding-top:10px;
+}
+.nearlist ul li{
+	width:266px;
+	height:24px;
+	line-height:24px;
+	float:left;
+}
